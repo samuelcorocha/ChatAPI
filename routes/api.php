@@ -14,6 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('users')->controller('')->group(function(){
+    Route::post('/');
+    Route::post('/login');
+    Route::get('/{user_id}');
+});
+
+Route::prefix('rooms')->controller('')->group(function(){
+    Route::post('/');
+    Route::delete('/{room_id}');
+    Route::post('/{room_id}/enter');
+    Route::post('/{room_id}/leave');
+    Route::delete('/{room_id}/users/{user_id}');
+    Route::match(['post', 'get'], '/{room_id}/messages');
+});
+
+Route::prefix('messages')->controller('')->group(function(){
+    Route::post('/direct/{receiver_id}');
 });
