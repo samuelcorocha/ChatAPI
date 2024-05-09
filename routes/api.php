@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('users')->controller('')->group(function(){
-    Route::post('/');
+Route::prefix('users')->controller(UsersController::class)->group(function(){
+    Route::post('/', 'storeUser');
     Route::post('/login');
     Route::get('/{user_id}');
 });

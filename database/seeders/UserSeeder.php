@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
     {
         $this->user->create([
             'name'=>'SAMU',
-            'password'=>bcrypt('123'),
+            'password'=>bcrypt('1234'),
             'email'=>'boss@chatapi.com',
             'access_token'=>'txt'
         ]);
