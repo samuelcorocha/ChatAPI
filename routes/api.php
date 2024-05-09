@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('users')->controller(UsersController::class)->group(function(){
     Route::post('/', 'storeUser');
-    Route::post('/login');
-    Route::get('/{user_id}');
+    Route::post('/login', 'login');
+    Route::get('/{user_id}', 'show');
 });
 
 Route::prefix('rooms')->controller('')->group(function(){
