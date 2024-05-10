@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('users')->controller(UsersController::class)->group(function(){
     Route::post('/', 'storeUser');
     Route::post('/login', 'login');
-    Route::get('/{user_id}', 'show');
+    Route::get('/{user_id}', 'show')->middleware('access_token');
 });
 
-Route::prefix('rooms')->controller(RoomsController::class)->group(function(){
+Route::prefix('rooms')->middleware('access_token')->controller(RoomsController::class)->group(function(){
     Route::post('/', 'createRoom');
     Route::delete('/{room_id}', 'deleteRoom');
     Route::post('/{room_id}/enter');
@@ -31,6 +31,6 @@ Route::prefix('rooms')->controller(RoomsController::class)->group(function(){
     Route::match(['post', 'get'], '/{room_id}/messages');
 });
 
-Route::prefix('messages')->controller('')->group(function(){
+Route::prefix('messages')->middleware('access_token')->controller('')->group(function(){
     Route::post('/direct/{receiver_id}');
 });
