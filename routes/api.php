@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,9 +22,9 @@ Route::prefix('users')->controller(UsersController::class)->group(function(){
     Route::get('/{user_id}', 'show');
 });
 
-Route::prefix('rooms')->controller('')->group(function(){
-    Route::post('/');
-    Route::delete('/{room_id}');
+Route::prefix('rooms')->controller(RoomsController::class)->group(function(){
+    Route::post('/', 'createRoom');
+    Route::delete('/{room_id}', 'deleteRoom');
     Route::post('/{room_id}/enter');
     Route::post('/{room_id}/leave');
     Route::delete('/{room_id}/users/{user_id}');
