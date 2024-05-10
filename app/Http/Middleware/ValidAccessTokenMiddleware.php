@@ -18,8 +18,7 @@ class ValidAccessTokenMiddleware
     {
       $user = User::where('access_token', $request->header('Authorization'))->first();
       auth()->logout();
-      if(!$user)
-        return response()->json(['error' => 'Token de acesso não autorizado.'], 401);
+      if(!$user) return response()->json(['error' => 'Token de acesso não autorizado.'], 401);
 
       auth()->login($user);
       return $next($request);
