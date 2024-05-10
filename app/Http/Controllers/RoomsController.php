@@ -6,7 +6,6 @@ use App\Http\Requests\CreateRoomRequest;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\UserRoom;
-use Illuminate\Support\Facades\Auth;
 
 class RoomsController extends Controller
 {
