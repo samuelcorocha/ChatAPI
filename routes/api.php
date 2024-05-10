@@ -25,9 +25,9 @@ Route::prefix('users')->controller(UsersController::class)->group(function(){
 Route::prefix('rooms')->middleware('access_token')->controller(RoomsController::class)->group(function(){
     Route::post('/', 'createRoom');
     Route::delete('/{room_id}', 'deleteRoom');
-    Route::post('/{room_id}/enter');
-    Route::post('/{room_id}/leave');
-    Route::delete('/{room_id}/users/{user_id}');
+    Route::post('/{room_id}/enter', 'enterRoom');
+    Route::post('/{room_id}/leave', 'leaveRoom');
+    Route::delete('/{room_id}/users/{user_id}', 'kickUser');
     Route::match(['post', 'get'], '/{room_id}/messages');
 });
 
