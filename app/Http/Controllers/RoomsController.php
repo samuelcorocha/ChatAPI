@@ -124,6 +124,12 @@ class RoomsController extends Controller
           'error' => "Sala não encontrada."
         ], 204, [], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
+      $userRoom = $this->userRoomMD->where('room_id', $room_id)->where('user_id', auth()->id())->first();
+      if (!$userRoom)
+        return response()->json([
+          'error' => "Usuário não está cadastrado nesta sala."
+        ], 204, [], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
       if(isset($request->message)){
         $mes = $this->sendMessage($request->message, $room_id);
         if(!$mes)
