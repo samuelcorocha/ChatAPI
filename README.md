@@ -1,10 +1,10 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-# ChatAPI - By Samukrel e Puis Lulos
+# ChatAPI
 
-## O ChatApi
+## O ChatAPI
 
-O sistema do ChatApi, é um conjunto de APIs, que atuam como um mecanismo de gerenciamento de mensagens tanto de forma privada quanto compartilhada em comunidade, permitindo a criação de usuários e salas para a realização de conversas. 
+O sistema do ChatApi, é um conjunto de APIs, que atuam como um mecanismo de gerenciamento de mensagens tanto de forma privada quanto compartilhada em comunidade, permitindo a criação de usuários e salas para a realização de conversas. O sistema foi criado como trabalho da disciplina de redes de computadores, no 6° período de Engenharia de Computação na Pontifícia Universidade Católica de Minas Gerais.
 
 ## O Laravel
 
@@ -119,19 +119,19 @@ Já para o caso de uma construção com informações pré alocadas, execute:
 
 #### Passo 7: Acessando o sistema
 
-Após toda a configuração ter sido executada com sucesso, o sistema estará disponível através da url: ``http://localhost``, o qual em sua visualização web estará disponível a documentação de todos os End-Points elaborados, de maneira a permitir uma visualização mais prática e intuitiva de meios de uso.
+Após toda a configuração ter sido executada com sucesso, o sistema estará disponível através da url: ``http://localhost``, o qual em sua visualização web estará disponível a documentação de todos os endpoints elaborados, de maneira a permitir uma visualização mais prática e intuitiva de meios de uso.
 
 A documentação utilizada foi construida através da ferramenta do [_Swagger_](https://swagger.io/), o qual foi elaborada para simplificar a visualização de APIs e suas funcionalidade, permitindo assim a execução ser realizada pela própria ferramenta ou por _softwares_ externos como [Insominia](https://insomnia.rest/) e [Postman](https://www.postman.com/).
 
 Para o caso de consulta das APIs em _software_ externo, a url de domínio devera ser acessada por: ```http://localhost/api/<endpoint_de_consulta>```.
 
-Além disso, alguns End-Point's estarão bloqueados com a necessidade de um token de acesso, que será gerado no momento da criação do usuário ou no efetuar do login, sendo assim necessário enviar um cabeçalho com o nome de ``Authorization`` que venha a armazenar este token de acesso, sendo assim a única maneira de acessar estas rotas bloqueadas.
+Além disso, alguns endpoints estarão bloqueados com a necessidade de um token de acesso, que será gerado no momento da criação do usuário ou no efetuar do login, sendo assim necessário enviar um cabeçalho com o nome de ``Authorization`` que venha a armazenar este token de acesso, sendo assim a única maneira de acessar estas rotas bloqueadas.
 
-Para uma melhor visualização, acesse o sistema pelo navegador para a visualização da documentação do _Swagger_, o qual informará quais rotas estarão protegidas através de um ícone de cadeado presente no canto direito referente ao End-point.
+Para uma melhor visualização, acesse o sistema pelo navegador para a visualização da documentação do _Swagger_, o qual informará quais rotas estarão protegidas através de um ícone de cadeado presente no canto direito referente ao endpoint.
 
 Com base nisso, tem-se ao fim:
 
 ```
 http://localhost          => URL de documentação
-http://localhost/api      => URL de consulta dos end-points
+http://localhost/api      => URL de consulta dos endpoints
 ```
