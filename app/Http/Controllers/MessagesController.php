@@ -28,7 +28,9 @@ class MessagesController extends Controller
           ], 400, [], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
       }
       $room = $this->roomMD->where('name', 'receiver_'.$receiver_id.'_'.auth()->id())->first();
-      $messages = $this->messagesMD->findAllByRoom($room->id);
+      $messages = (object)[];
+      if($room)
+        $messages = $this->messagesMD->findAllByRoom($room->id);
 
       return response()->json($messages, 200, [], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }catch (\Exception $e){

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
@@ -31,6 +32,6 @@ Route::prefix('rooms')->middleware('access_token')->controller(RoomsController::
     Route::match(['post', 'get'], '/{room_id}/messages', 'message');
 });
 
-Route::prefix('messages')->middleware('access_token')->controller('')->group(function(){
-    Route::post('/direct/{receiver_id}');
+Route::prefix('messages')->middleware('access_token')->controller(MessagesController::class)->group(function(){
+    Route::match(['post', 'get'],'/direct/{receiver_id}', 'getMessage');
 });

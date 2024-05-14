@@ -6,9 +6,12 @@
     "contact": {
       "email": "apiteam@swagger.io"
     },
-    "version": "0.6.20"
+    "version": "1.1.2"
   },
   "servers": [
+    {
+      "url": "http://localhost/api"
+    },
     {
       "url": "https://localhost/api"
     }
@@ -28,7 +31,7 @@
     }
   ],
   "paths": {
-    "/user": {
+    "/users": {
       "post": {
         "tags": [
           "Users"
@@ -88,7 +91,7 @@
         }
       }
     },
-    "/user/login": {
+    "/users/login": {
       "post": {
         "tags": [
           "Users"
@@ -148,7 +151,7 @@
         }
       }
     },
-    "/user/{user_id}": {
+    "/users/{user_id}": {
       "get": {
         "tags": [
           "Users"
@@ -187,7 +190,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
 
@@ -200,8 +208,8 @@
         "description": "",
         "parameters": [
           {
-            "name": "name",
-            "in": "path",
+            "name": "room",
+            "in": "query",
             "description": "O nome da nova sala de chat.",
             "required": true,
             "schema": {
@@ -230,7 +238,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/rooms/{room_id}": {
@@ -284,7 +297,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/rooms/{room_id}/enter": {
@@ -337,7 +355,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/rooms/{room_id}/leave": {
@@ -390,7 +413,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
     "/rooms/{room_id}/users/{user_id}": {
@@ -451,9 +479,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
+
     "/rooms/{room_id}/messages": {
       "get": {
         "tags": [
@@ -503,7 +537,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -522,7 +561,7 @@
           },
           {
             "name": "message",
-            "in": "path",
+            "in": "query",
             "required": true,
             "schema": {
               "type": "string"
@@ -561,10 +600,14 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     },
-
     "/messages/direct/{receiver_id}": {
       "get": {
         "tags": [
@@ -575,7 +618,7 @@
         "parameters": [
           {
             "name": "receiver_id",
-            "in": "query",
+            "in": "path",
             "description": "Id do usuário do chat privado.",
             "required": true,
             "schema": {
@@ -614,7 +657,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -625,11 +673,19 @@
         "parameters": [
           {
             "name": "receiver_id",
-            "in": "query",
+            "in": "path",
             "description": "Id do usuário do chat privado.",
             "required": true,
             "schema": {
               "type": "integer"
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -664,7 +720,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ]
       }
     }
   },
@@ -755,9 +816,10 @@
       }
     },
     "securitySchemes": {
-      "api_key": {
+      "Authorization": {
         "type": "apiKey",
-        "name": "api_key",
+        "name": "Authorization",
+        "description": "Token de Acesso enviado pelo cabeçalho para a permissão de acesso.",
         "in": "header"
       }
     }
