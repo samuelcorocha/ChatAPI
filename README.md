@@ -20,6 +20,18 @@ Laravel é um framework de aplicação web com sintaxe expressiva e elegante. Ac
 
 Laravel é acessível, poderoso e fornece as ferramentas necessárias para aplicações grandes e robustas.
 
+### O Sistema
+
+A estrutura da API se divide em algumas partes. Através das _routes_, podemos acessar as funções da API. Por exemplo:
+
+```
+/user/login 
+```
+
+Essas funções são acessadas nos _Controllers_, mas antes disso, a requisiçãp pode ser validada pela _Middleware_ de autenticação ou pela validação de requisição, encontrada em _Requests_.
+
+Dentro do Controller, as regras de negócio poderão ser encontradas, além das consultas a _Model_, permitindo a conectividade com o Banco de Dados.
+
 ## A Instalação
 
 Para a instalação do sistema, esteja ciente que será necessário a utilização do _software_ [Docker](https://www.docker.com/), para a execução do sistema, pois, para o funcionamento foi utilizado containers de uso padrão disponibilizado pelo próprio _Framework_ do Laravel, sendo ele o Laravel Sail.
@@ -117,7 +129,7 @@ Já para o caso de uma construção com informações pré alocadas, execute:
 ./vendor/bin/sail artisan migrate:fresh --seed
 ```
 
-#### Passo 7: Acessando o sistema
+#### Passo 7: Acessando o Sistema
 
 Após toda a configuração ter sido executada com sucesso, o sistema estará disponível através da url: ``http://localhost``, o qual em sua visualização web estará disponível a documentação de todos os endpoints elaborados, de maneira a permitir uma visualização mais prática e intuitiva de meios de uso.
 
